@@ -1,0 +1,87 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>La Teoría del Todo</h1>
+	<ul>
+		<li>El hombre</li>
+		<li>Leviatan</li>
+		<li>Los Animales y el comportamiento Unificado del hombre</li>
+	</ul>
+	<button onclick="getDictionary()">Obtener dicc!</button>
+	<button onclick="postDictionary()">Add word</button>
+	<button onclick="test1()"> test</button>
+	<input type="text" placeholder="add word..." id="newWord"/>
+	<p id="words"></p>
+	<script type="text/javascript">
+		var baseURL = "http://"+document.domain+":8080"
+		function getNewXHRObject(){
+		  var xhr
+		  if (window.XMLHttpRequest) {
+		      xhr = new XMLHttpRequest()// code for IE7+, Firefox, Chrome, Opera, Safari
+		  } else {
+		      xhr = new ActiveXObject("Microsoft.XMLHTTP"); // code for IE6, IE5
+		    }
+		  return xhr;
+		}
+		
+		function test1(){
+			if(/[A-z]/g.test(document.getElementById("newWord").value)){
+				alert(true)
+			}
+			else{
+				alert(false)
+			}
+		}
+		function getDictionary(){
+		  //no cookie? Why??? :(
+		  var url= baseURL+"/dictionary"
+		  var xhr = getNewXHRObject();
+		  xhr.open("GET", url, true)
+		  xhr.send(null)
+		  xhr.onreadystatechange = function() {
+		    if (xhr.readyState == XMLHttpRequest.DONE ) {
+		       if(xhr.status == 200){
+		          var json = JSON.parse(xhr.responseText)
+		          for(i = 0; i<json.dictionary.length;i++){
+		          		var word= json.dictionary[i].word
+		       		    var words = document.getElementById("words")
+		       		    words.innerHTML = words.innerHTML+'<br>'+word;
+		          }
+		       }
+		       else if(xhr.status == 400) {
+		          alert('There was an error 400')
+		       }
+		       else {
+		           alert('something else other than 200 was returned')
+		       }
+			}
+		  }
+		}
+
+		function postDictionary(){
+		  var url= baseURL+"/dictionary"
+		  var xhr = getNewXHRObject();
+		  xhr.open("POST", url, true)
+		  var params = "word="+document.getElementById("newWord").value
+		  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		  xhr.send(params)
+		  xhr.onreadystatechange = function() {
+		    if (xhr.readyState == XMLHttpRequest.DONE ) {
+		       if(xhr.status == 200){
+		         alert("word Added!")
+		       }
+		       else if(xhr.status == 400) {
+		          alert('There was an error 400')
+		       }
+		       else {
+		           alert('something else other than 200 was returned')
+		       }
+			}
+		  }
+		}
+
+	</script>
+</body>
+</html>

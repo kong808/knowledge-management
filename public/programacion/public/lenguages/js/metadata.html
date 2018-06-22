@@ -1,0 +1,122 @@
+<html>
+<head>
+	<title>Metadata</title>
+</head>
+<body>
+	<h1>Metadata</h1>
+	<br>
+	<br>
+	<button onclick="getMetadata()">get Matadata!</button>
+	<br>
+	<br>
+	<pre id="metadata">Here!</pre>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<pre>
+		<h1>Infobae Metadata's</h1>
+		<p hidden id="infobaeMetadata">
+			<html class="" itemtype="http://schema.org/ItemList" itemscope="">
+			<link type="image/x-icon" href="/pb/resources/favicon.ico" rel="shortcut icon">
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+<meta charset="UTF-8">
+<meta id="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=0.5, maximum-scale=2.0" name="viewport">
+<meta content="Infobae, Infobae.com, ultimas noticias, diario, noticias de hoy, argentina, noticias, información, política, sociedad, policiales, economía, finanzas, deportes, futbol, tenis, rugby, basquetbol, voleibol, formula 1, cultura, espectáculos, entretenimiento, cine, teatro, televisión, tv, horóscopo, tendencias, moda, fashion, vinos, restaurantes, mundo, américa, internacional, américa latina, latinoamérica, ciencia, salud, tecno, tecnología, ultimas noticias, alerta, noticias nacionales, ultima hora, ,noticias internacionales,educacion, elecciones,musica,negocios, lifestyle, buenos aires, temas del día, hoy, leelo antes, capital federal, teleshow, grandes libros, playtv, infobaetv, mix5411, fotos, audios, multimedia, digital, fotos al 100, videos, show, famosos, ciudad, capital," property="keywords">
+<meta value="Noticias de Argentina y del mundo en tiempo real. Información, videos y fotos sobre los hechos más relevantes y sus protagonistas. Léelo antes en infobae." name="description" itemprop="description">
+<meta content="" name="news_keywords">
+<meta value="@infobae" name="twitter:site">
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@infobae" name="twitter:creator">
+<meta content="Noticias de Argentina y del mundo en tiempo real. Información, videos y fotos sobre los hechos más relevantes y sus protagonistas. Léelo antes en infobae." property="og:description">
+<meta content="Noticias de Argentina y del mundo en tiempo real. Información, videos y fotos sobre los hechos más relevantes y sus protagonistas. Léelo antes en infobae." name="twitter:description">
+<meta content="website" property="og:type">
+<meta content="Infobae" property="og:site_name">
+<meta content="es_LA" property="og:locale">
+<meta content="index, follow" name="robots">
+<meta content="global" name="distribution">
+<meta content="general" name="rating">
+<meta content="es_ES" name="language">
+<meta content="http://www.infobae.com/new-resizer/fmKhfIzIBXh0SjR_HstkvTV7pbg=/1200x0//pb/resources/assets/img/fallback-promo-image.png?token=bar" property="og:image" itemprop="image">
+<meta content="http://www.infobae.com/new-resizer/fmKhfIzIBXh0SjR_HstkvTV7pbg=/1200x0//pb/resources/assets/img/fallback-promo-image.png?token=bar" name="twitter:image">
+<meta content="Infobae: Últimas Noticias de Argentina y del Mundo." property="og:title">
+<meta content="Infobae: Últimas Noticias de Argentina y del Mundo." name="twitter:title">
+<meta content="https://www.facebook.com/infobae" property="article:publisher">
+<meta content="303536999846097" property="fb:app_id">
+<meta content="http://www.infobae.com/" property="og:url">
+<link href="http://www.infobae.com/" rel="canonical">
+<title>Infobae: Últimas Noticias de Argentina y del Mundo. - Infobae</title>
+<meta content="" property="article:tag">
+<meta content="" property="article:section">
+<meta content="app-id=908809051" name="apple-itunes-app">
+<meta content="true" name="external">
+<meta content="05:00" name="autoRefresh">
+		</p>
+		<div id="infobaeMetadata2"></div>
+	</pre>
+	<script type="text/javascript">
+	/////////////////////////////////////////
+	////////////////////////////////////////
+
+		var w = window.innerWidth
+		|| document.documentElement.clientWidth
+		|| document.body.clientWidth;
+
+		var h = window.innerHeight
+		|| document.documentElement.clientHeight
+		|| document.body.clientHeight; 
+
+	//////////////////////////////////////////
+	/*
+    window.open() - open a new window
+    window.close() - close the current window
+    window.moveTo() -move the current window
+    window.resizeTo() -resize the current window
+	*/
+    //////////////////////////////////////////
+    /*
+    window.location.href returns the href (URL) of the current page
+    window.location.hostname returns the domain name of the web host
+    window.location.pathname returns the path and filename of the current page
+    window.location.protocol returns the web protocol used (http:// or https://)
+    window.location.assign loads a new document
+
+    window.history.back() - same as clicking back in the browser
+    window.history.forward() - same as clicking forward in the browser
+
+    EXTRA: 
+
+    1- Take Five (Intro)
+    2- El fumador bohemio
+    3- Se Siente
+
+    4- No acabes (SUMO)
+    5- Flores de las Hojas
+    6- Repartiendo Arte
+
+    7- Vámonos PAL Río
+    8- 
+	*/ 
+
+var metadata = {
+	os: navigator.platform,
+	browser: navigator.appCodeName,
+	browserVersion: navigator.appVersion,
+	location: location,
+	localStorage: localStorage,
+	bitsPerPixel: screen.pixelDepth,
+	bitsPerPixelForImages: screen.colorDepth,
+	bpp4ImagesDocumentation: "https://www.w3schools.com/jsref/prop_screen_colordepth.asp",
+	getNavigator: function(){return navigator}
+}
+
+function getMetadata(){console.log(metadata);
+	var meta = JSON.stringify(metadata, null, 4);
+	document.getElementById("metadata").innerHTML = meta;
+}
+    
+
+
+var infobaeMetadata = document.getElementById("infobaeMetadata").innerHTML;
+document.getElementById("infobaeMetadata2").innerHTML = infobaeMetadata
+
+	</script>
+</body>
+</html>

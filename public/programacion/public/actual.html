@@ -1,0 +1,34 @@
+<html>
+<head>
+	<title>Actual Work:</title>
+</head>
+<body>
+	<h1>Actual Work:</h1>
+	<ul>
+		<li>Facebook API: 
+			<ol>
+				<li><a target="_blank" href="https://developers.facebook.com/docs/facebook-login/access-tokens/#usertokens">Tokens</a></li>
+				<li><a target="_blank" href="https://developers.facebook.com/tools/explorer/145634995501895/?method=GET&path=10208307069455175&version=v2.9">Facebook API Graph</a></li>
+				<li><a target="_blank" href="https://developers.facebook.com/docs/graph-api/overview">Facebook API Graph Overview</a></li>
+				<li><a target="_blank" href="https://developers.facebook.com/docs/facebook-login/manually-build-a-login-flow">Facebook OAuth- Login via DialogBox</a></li>
+			</ol>
+		</li>
+		<li><a target="_blank" href="http://blogthinkbig.com/20-cursos-gratuitos-para-aprender-disenos-grafico-e-ilustracion/">10 cursos de Diseño Grafico</a></li>
+		<li><a target="_blank" href="http://blogthinkbig.com/la-nasa-bate-record-de-comunicaciones-laser-entre-la-tierra-y-la-luna/">Comunicaciónes ópticas vía laser, Tierra-Luna</a></li>
+	</ul>
+	<br>
+	<br>
+	<br>
+	<a href="/">Index</a>
+	<script type="text/javascript">
+/***************************/
+//Facebook API : Token
+FB.getLoginStatus(function(response) {
+  if (response.status === 'connected') {
+    var accessToken = response.authResponse.accessToken;
+  } 
+} );
+/***************************/
+	</script>
+</body>
+</html>

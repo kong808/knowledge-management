@@ -1,0 +1,99 @@
+<html>
+<head>
+	<title>Mongo Shell</title>
+</head>
+<body>
+	<h1>Mongo Shell</h1>
+	<br>
+	<ul>
+		<a target="_blank" href="http://api.mongodb.org/">http://api.mongodb.org/</a>
+		<br>
+		<br>
+		<li>
+			mongod --dbpath=C:\data\db  //Init mongo server in windows
+		</li>
+		<li>
+			mongo //Connect to mongo & start the Mongodb Shell
+		</li>
+		<br>
+		<li>
+			Drop database:
+			<br>
+			> use mydb;<br> 
+			> db.dropDatabase(); //will delete the database and return { "dropped" : "<i>dbname</i>", "ok" : 1 }
+		</li>
+		<br>
+		<li>
+			Show and List all db's:
+			<br>
+			> show dbs //to list existing databases
+		</li>
+		<br>
+		<li>
+			Creates or switch to a db:
+			<br>
+			> use <i>dbname</i> //creates a db named "<i>dbname</i>"
+		</li>
+		<br>
+		<li>
+			Show the actual db:
+			<br>
+			> db //should show <i>dbname</i> just to be sure I'm working with the right database
+		</li>
+		<br>
+		<li>
+			Show collections:
+			<br>
+			> show collections //list all collections in db
+		</li>
+		<br>
+		<li>
+			Create collection:
+			<br>
+			> db.createCollection("mycollection")
+		</li>
+		<br>
+		<li>
+			Usage:
+			<br>
+			> db.<i>collection</i>.find().pretty()
+		</li>
+		<br>
+		<li>
+			<h2>Files:</h2>
+			mongod.conf: /etc/
+			<br>
+			dbPath: /var/lib/mongodb (se setea en mongod.conf)
+		</li>
+	</ul>
+	<ul>
+		<h1>Mongoose:</h1>
+		<li>Docs: <a href="http://mongoosejs.com/docs/guide.html">Schemas guide</a></li>
+		<li> <a href="http://stackoverflow.com/questions/18001478/referencing-another-schema-in-mongoose">Refering another Schema</a></li>
+		<li><a href="https://www.google.com.ar/search?q=together&oq=together&aqs=chrome..69i57j69i60l3j69i61j69i59.855j0j7&sourceid=chrome&ie=UTF-8#q=mongoose+schema+definition+object+id+reference">Search: mongoose schema definition object id reference</a></li>
+	</ul>
+
+	<ul>
+		<h3>Robomongo</h3>
+		<li><pre>Workaround Solution
+
+i. Use ssh port forwarding option from MAC terminal to remote mongodb server:
+
+// with password
+ssh -L localport:mongodb_ip:port user@ssh_server_ip
+ssh -L 27018:127.0.0.1:27017 user@192.168.3.28  // working example
+
+// with private key
+ssh -i /path/to/private_key.pem -L localport:mongodb_ip:port user@ssh_server_ip   
+ssh -i temp/priv_key.pem -L 27018:192.168.3.48:27017 user@192.168.3.48    // working example
+
+ii. Go to Robomongo, create connection with localhost:27018
+(Note: No need to enable SSH on Robomongo, ssh tunneling is enabled and handled by MAC terminal.)
+</pre>
+</li>
+	</ul>
+
+	<br>
+	<a href="/">Index</a>
+</body>
+</html>

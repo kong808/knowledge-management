@@ -1,0 +1,92 @@
+
+Spring Boot - java 1.8
+
+MyApp
+|
+|_src
+	|
+	--main
+	|	|
+	|	--java
+	|	|	|
+	|	|	--- Controller --> Mapeo de URL requests (Controller de mvc)
+	|	|	---	Service --> Lógica de negocio (Model de mvc?)
+	|	|	---	Dao --> Data acces object (Model de mvc?)
+	|	|	---	Entity --> Entidades POJO. (Plain Old Java Objects!!! - Beans) Model de mvc?
+	|	|
+	|	|
+	|	|
+	|	--resources
+	|	|	|
+	|	|	--? configs.xml / some.html / datasources.xml , etc.
+	|	|
+	|	--main.java
+	|
+	|
+	--tests
+	|	|
+	|	--java
+	|
+	|
+	--pom.xml
+
+
+----------------------------------------------------------------
+|	Design Layer											   |
+----------------------------------------------------------------
+java															|
+|											   					|
+|--- Controller  											Design Layer
+|		|										|---------------------------------------|
+|		--EntityController.java   				| Controller Layer /Handles HTTP methods|
+|		--NameController.java    				|		|			|					|
+|												|-------|-----------|-------------------|
+|												|		|			|					|
+|												|  Service Layer / Business Logic		|
+|--- Dao 										|		|			|					|
+|		|										|		|			|					|
+|		--EntityDao.java 						|		|			|					|
+|		--NameDao.java 							|-------|-----------|-------------------|
+|												|  Entity - Dao Layer / Data acces 		|
+|												|		|			|					|
+|												|		|			|					|
+|---Entity 										|-------|-----------|-------------------|
+|		|										|			 DBs						|
+|		--Entity.java 							| (MySQL, MongoDB, FakeData, Oracle)	|
+|		--Name.java 							----------------------------------------|
+|
+|																|
+|																|
+|---Service 													|
+		|														|
+		--EntityService.java 									|
+		--NameService.java 										|
+|																|
+-----------------------------------------------------------------
+
+
+
+My API Portafolio:
+
+----------------------------------------------------------------
+----------------------------------------------------------------
+StringApi.js 
+ValidationApi.js
+JSONApi.js
+NumbersApi.js (Math.js?)
+
+
+StringApi.js (Interface)
+-----------------
+Methods For CLOBS (Character Long Objecs. ex: 'asdjqiuewdu21u3hui1hnc8'):
+
+Methods for Parragraphs (ex: "there was some time when..."):
+
+
+
+boolean isOnlyLetters(str);
+boolean isOnlyNumbers(str);
+
+----------------------------------------------------------------
+----------------------------------------------------------------
+

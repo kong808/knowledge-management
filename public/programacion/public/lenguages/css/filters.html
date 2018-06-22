@@ -1,0 +1,187 @@
+<html>
+<head>
+	<title>Filters</title>
+	<link rel="stylesheet" type="text/css" href="css/filters.css">
+</head>
+<body>
+	<h1>Filters</h1>
+	<br/>
+	<h3>ONLY: works on firefox :/</h3>
+	<ul>
+		<button onclick="download()">Enviar</button>
+		<li><a target="_blank" href="http://www.w3schools.com/css/css3_filters.asp">documentation</a></li>
+		<li>
+			<p>An example of all filter functions.</p>
+			<p><strong>Note:</strong> The filter property is not supported in Internet Explorer.</p>
+			<div class="floated">
+				<h3>Normal</h3>
+				<img src="dharma-shala.jpg" alt="Pineapple" width="300" height="300">
+			</div>
+			<div class="floated">
+				<h3>Blur</h3>
+				<input type="range" min="0" max="100" value="0" oninput="blur5(this.value)" />
+				<span id="rBlur">0</span>
+				<img id="blur" src="dharma-shala.jpg" alt="Pineapple" width="300" height="300">
+			</div>
+			<div class="floated">
+				<h3>Brightness</h3>
+				<input type="range" min="0" max="100" value="0" oninput="bright(this.value)" />
+				<span id="rBright">0</span>
+				<img id="brightness" src="dharma-shala.jpg" alt="Pineapple" width="300" height="300">
+			</div>
+			<div class="floated">
+				<h3>Contrast</h3>
+				<input type="range" min="0" max="1000" value="0" oninput="contrast(this.value)" />
+				<span id="rContrast">0</span>
+				<img id="contrast" src="dharma-shala.jpg" alt="Pineapple" width="300" height="300">
+			</div>
+			<div class="floated">
+				<h3>Grayscale</h3>
+				<input type="range" min="0" max="100" value="0" oninput="grayscale(this.value)" />
+				<span id="rGrayscale">0</span>
+				<img id="grayscale" src="dharma-shala.jpg" alt="Pineapple" width="300" height="300">
+			</div>
+			<div id="huerotate" class="floated">
+				<h3>Huerotate</h3>
+				<input type="range" min="0" max="360" value="0" oninput="huerotate(this.value)" />
+				<span id="rHuerotate">0</span>
+				<img id="huerotate" src="dharma-shala.jpg" alt="Pineapple" width="300" height="300">
+			</div>
+			<div class="floated">
+				<h3>Invert</h3>
+				<input type="range" min="0" max="100" value="0" oninput="invert(this.value)" />
+				<span id="rInvert">0</span>
+				<img id="invert" src="dharma-shala.jpg" alt="Pineapple" width="300" height="300">
+			</div>
+			<div class="floated">
+				<h3>Opacity</h3>
+				<input type="range" min="0" max="100" value="0" oninput="opacity(this.value)" />
+				<span id="rOpacity">0</span>
+				<img id="opacity" src="dharma-shala.jpg" alt="Pineapple" width="300" height="300">
+			</div>
+			<div class="floated">	
+				<h3>Saturate</h3>
+				<input type="range" min="0" max="100" value="0" oninput="saturate(this.value)" />
+				<span id="rSaturate">0</span>
+				<img id="saturate" src="dharma-shala.jpg" alt="Pineapple" width="300" height="300">
+			</div>
+			<div class="floated">
+				<h3>Sepia</h3>
+				<input type="range" min="0" max="100" value="0" oninput="sepia(this.value)" />
+				<span id="rSepia">0</span>
+				<img id="sepia" src="dharma-shala.jpg" alt="Pineapple" width="300" height="300">
+			</div>
+			<div class="floated">
+				<h3>Shadow</h3>
+				<input type="range" min="0" max="100" value="0" oninput="shadow(this.value)" />
+				<span id="rShadow">0</span>
+				<img id="shadow" src="dharma-shala.jpg" alt="Pineapple" width="300" height="300">
+			</div>
+		</li>
+		<li>
+			<a target="_blank" href="http://www.html5rocks.com/en/tutorials/canvas/imagefilters/">write your own Filter in JS & HTML5</a>
+		</li>
+		<a href="http://stackoverflow.com/questions/15669221/save-images-after-using-css-filter">doc1 js</a>
+		<a href="http://stackoverflow.com/questions/12620763/save-html5-canvas-with-images-as-an-image">doc 2</a>
+		<a href="https://www.google.com.ar/search?q=Failed+to+execute+%27drawImage%27+on+%27CanvasRenderingContext2D%27%3A+The+provided+value+is+not+of+type+%27(HTMLImageElement+or+HTMLVideoElement+or+HTMLCanvasElement+or+ImageBitmap)%27&oq=Failed+to+execute+%27drawImage%27+on+%27CanvasRenderingContext2D%27%3A+The+provided+value+is+not+of+type+%27(HTMLImageElement+or+HTMLVideoElement+or+HTMLCanvasElement+or+ImageBitmap)%27&aqs=chrome..69i57.451j0j7&sourceid=chrome&es_sm=93&ie=UTF-8">primary error: Failed to execute 'drawImage' on 'CanvasRenderingContext2D': The provided value is not of type '(HTMLImageElement or HTMLVideoElement or HTMLCanvasElement or ImageBitmap)'</a>
+		<a href="http://stackoverflow.com/questions/14270897/capture-save-export-an-image-with-css-filter-effects-applied">doc 3</a>
+		<a href="https://www.google.com.ar/search?q=how+to+export+an+html+photo+filtered+image&oq=how+to+export+an+html+photo+filtered+image&aqs=chrome..69i57.9632j0j7&sourceid=chrome&es_sm=93&ie=UTF-8#q=how+to+export+an+html5+image+filters">this is what you wanna do!</a>
+	</ul>
+	<br/>
+	<footer><a href="css.html">CSS Index</a></footer>
+	<script type="text/javascript">
+		/**  CSS FILTER FUNCTIONS  **/
+		function blur5(value){
+			document.getElementById("rBlur").innerHTML=value
+			document.getElementById("blur").style = "filter: blur("+value+"px)"
+		}
+
+		function bright(value){
+			document.getElementById("rBright").innerHTML=value
+			if(value<10){
+				value = "0"+value
+			}
+			if(value>99){
+				document.getElementById("brightness").style = "filter: brightness(1)"
+			}
+			else{
+				document.getElementById("brightness").style = "filter: brightness(0."+value+")"
+			}
+		}
+
+		function contrast(value){
+			document.getElementById("rContrast").innerHTML=value
+			document.getElementById("contrast").style = "filter: contrast("+value+"%)"
+		}
+
+		function grayscale(value){
+			document.getElementById("rGrayscale").innerHTML=value
+			document.getElementById("grayscale").style = "filter: grayscale("+value+"%)"
+		}
+
+		function huerotate(value){
+			document.getElementById("rHuerotate").innerHTML=value
+			document.getElementById("huerotate").style = "filter: hue-rotate("+value+"deg)"
+		}
+
+		function invert(value){
+			document.getElementById("rInvert").innerHTML= value;
+			document.getElementById("invert").style = "filter: invert("+value+"%)"
+		}
+
+		function opacity(value){
+			document.getElementById("rOpacity").innerHTML= value;
+			document.getElementById("opacity").style = "filter: opacity("+value+"%)"
+		}
+
+		function saturate(value){
+			document.getElementById("rSaturate").innerHTML= value;
+			document.getElementById("saturate").style = "filter: saturate("+value+")"
+		}
+
+		function sepia(value){
+			document.getElementById("rSepia").innerHTML= value;
+			document.getElementById("sepia").style = "filter: sepia("+value+"%)"
+		}
+
+		function shadow(value){
+			document.getElementById("rShadow").innerHTML= value;
+			document.getElementById("shadow").style = "filter: drop-shadow("+value+"px 8px 10px green)"
+		}
+
+		/**  CSS FILTER FUNCTIONS  **/
+		//se
+		function grayscale2(ctx) {
+		var pixels = ctx.getImageData(0,0,canvas.width, canvas.height);
+		var d = pixels.data;
+		for (var i=0; i<d.length; i+=4) {
+		    var r = d[i];
+		    var g = d[i+1];
+		    var b = d[i+2];
+		    var v = 0.2126*r + 0.7152*g + 0.0722*b;
+		    d[i] = d[i+1] = d[i+2] = v
+		}
+		context.putImageData(pixels, 0, 0);
+		}
+
+		//Trigger
+		function download(canvas) {
+			var canvas = document.createElement('canvas');
+			canvas.id="canvasPhoto";
+			var imageContaainer = document.getElementById("huerotate");
+			canvas.width = imageContaainer.width;
+			canvas.height = imageContaainer.height;
+			var ctx = canvas.getContext('2d');
+			document.getElementById("huerotate").onload = function(){
+				ctx.drawImage(imageContaainer, 0, 0, canvas.width, canvas.height);
+		   		var data = canvas.toDataURL("image/png");
+		  		grayscale2(ctx);
+		  		if (!window.open(data)) 
+		   			{
+			     	  document.location.href = data;
+			   		}
+			}
+		}
+	</script>
+</body>
+</html>

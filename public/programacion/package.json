@@ -1,0 +1,23 @@
+{
+  "name": "dharmashala",
+  "version": "1.0.0",
+  "description": "<body>     <div style=\"background-color:green\"> Si si señores!</div>   </body> </html>",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ivuch/dharmashala.git"
+  },
+  "author": "Kong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ivuch/dharmashala/issues"
+  },
+  "homepage": "https://github.com/Ivuch/dharmashala#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}

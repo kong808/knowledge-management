@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HTML 5</title>
+</head>
+<body>
+	<h1>HTML 5</h1>
+	<ul>
+		<h3>New Features:</h3>
+		<li><a target="_blank" href="http://www.html5rocks.com/en/tutorials/websockets/basics/">WebSockets (Application Layer [OSI Model] - Protocol)</a> (Una variante de HTTP)</li>
+		<li><a target="_blank" href="http://www.tutorialspoint.com/html5/html5_websocket.htm">websockets B</a></li>
+		<li><a target="_blank" href="https://en.wikipedia.org/wiki/WebSocket">wiki: The WebSocket Protocol</a></li>
+		<li><a target="_blank" href="https://www.nginx.com/blog/realtime-applications-nginx/">NginX + Node.js + WebSockets</a></li>
+		<li><a target="_blank" href="https://www.nginx.com/blog/tag/websocket/">Some Related Articles: NginX+Node-js+WebSocket (Socket.io)</a></li>
+		<li><a target="_blank" href="http://www.w3schools.com/html/html5_webworkers.asp">Web Worker (non-blocking JS)</a></li>
+		<li><a target="_blank" href="http://www.w3schools.com/html/html5_geolocation.asp">GeoLocalization</a></li>
+    <li><a target="_blank" href="http://www.w3schools.com/tags/ref_standardattributes.asp">HTML5 especial GLOBAL attr</a></li>
+	</ul>
+	<iframe src="http://www.w3schools.com"></iframe>
+  <div style="float: left; text-align: left; border: 1px solid black;">
+    <h1>HTML5</h1>
+    <ul>
+      <li><a href="">tags propios (custom tags)</a></li>
+      <li><a target="_blank" href="http://www.webcodegeeks.com/html5/html5-file-upload-example/">upload and download files</a></li>
+    </ul>
+  </div>
+  <br>
+  <br>
+	<br>
+	<br>
+	<a href="/">Index</a>
+	<script type="text/javascript">
+		var baseURL = "http://"+document.domain+":8080"
+function getNewXHRObject(){
+  var xhr
+  if (window.XMLHttpRequest) {
+      xhr = new XMLHttpRequest()// code for IE7+, Firefox, Chrome, Opera, Safari
+  } else {
+      xhr = new ActiveXObject("Microsoft.XMLHTTP"); // code for IE6, IE5
+    }
+  return xhr;
+}
+
+/** 
+LOGIN function():
+  Si el status = 200 inicia 
+  El Content-type Negociation: 
+        Si es "application/json" -->login con error (se setea la clase .error de CSS)
+        Si es cualquier otro  -->> se hace un render al xhr.responseText (debería ser un HTML)
+**/
+function login(){
+  var url = "https://www.google.com.ar/search?q=hola"
+  var xhr = getNewXHRObject()
+  xhr.open("get", url, true)
+  xhr.send()
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState == XMLHttpRequest.DONE ) {
+       if(xhr.status == 200){
+          var content = xhr.getResponseHeader("Content-Type")
+          if(content == "application/json; charset=utf-8"){
+            var json = JSON.parse(xhr.responseText)
+            if(json.isERROR){
+              user.addClass("error")
+              pass.classList.add("error")
+            }
+          }else{
+          	var iframer = document.getElementById("iframer")
+          	iframer.innerHTML = xhr.responseText
+            //document.open()
+           // document.write(xhr.responseText)
+            //document.close()
+          }  
+        }else if(xhr.status == 400) {
+          alert('There was an error 400')
+        }else {
+          alert('something else other than 200 was returned')
+      }
+    }
+  }
+}
+	</script>
+</body>
+</html>

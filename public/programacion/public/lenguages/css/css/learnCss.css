@@ -1,0 +1,86 @@
+.gradient {
+			height: 50px;
+		    background: #E65A21; /* For browsers that do not support gradients */
+		    background: -webkit-linear-gradient(#ffffff, #E65A21, #ffffff); /* For Safari 5.1 to 6.0 */
+		    background: -o-linear-gradient(#ffffff, #E65A21, #ffffff); /* For Opera 11.1 to 12.0 */
+		    background: -moz-linear-gradient(#ffffff, #E65A21, #ffffff); /* For Firefox 3.6 to 15 */
+		    background: linear-gradient(#ffffff, #E65A21, #E65A21, #E65A21, #ffffff); /* Standard syntax <-- Normal set for gradient*/
+		}	
+
+div.transition {
+    width: 100px;
+    height: 100px;
+    background: red;
+    -webkit-transition: width 1s linear; /* For Safari 3.1 to 6.0 */
+    transition: width 1s linear;
+}
+
+div.transition:hover {
+    width: 100%;
+}
+
+
+.triangle{
+  width: 0; 
+  height: 0; 
+  padding-right:5px;
+  margin-right: 5px;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid yellow;
+}
+
+.alertTriangle{
+   width: 0; 
+  height: 0; 
+  border-left: 17px solid transparent;
+  border-right: 17px solid transparent;
+  border-bottom: 17px solid red;
+}
+
+/* Diagonal NavBar Style!!*/
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+nav li {
+  display: inline-block;
+  margin: 0 5px;
+  transition: all 0.3s;
+}
+nav a {
+	text-decoration: none;
+  display: block;
+  color: #285064;
+  transition: all 0.3s;
+}
+nav a:hover {
+  color: #12242d;
+}
+nav span {
+  display: block;
+}
+
+@media all and (min-width: 690px) {
+  nav li {
+    margin: 0;
+    transform: skewX(-10deg);
+  }
+  nav a {
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #285064;
+  }
+  nav a:hover {
+    color: #fff;
+    background-color: #12242d;
+  }
+  nav span {
+    transform: skewX(10deg);
+  }
+}
+
+/* Fin Diagonal NavBar Style!!*/

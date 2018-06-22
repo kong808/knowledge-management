@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Line-height Animation</title>
+</head>
+<body>
+	<h1>Line-height Animation</h1>
+	<br/>
+	<style> 
+#myDIV {
+    line-height: 16px;
+    -webkit-animation: mymove 5s infinite; /* Chrome, Safari, Opera */
+    animation: mymove 5s infinite;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes mymove {
+    50% {line-height: 50px;}
+}
+
+/* Standard syntax */
+@keyframes mymove {
+    50% {line-height: 50px;}
+}
+
+</style>
+</head>
+<body>
+	<div>
+		<a href="http://www.w3schools.com/cssref/pr_dim_line-height.asp">documentation</a>
+		<b>A saber: <i>"El line-height y la Animation son dos cosas distintas."</i></b>
+		<p> *colorear el line-height para saber qu&eacute; es exactamente... ¿es posible?</p>
+	</div>
+	<div>
+		<p>The line-height property is <em>animatable</em> in CSS.</p>
+		<p><b>Note:</b> CSS Animations do not work in Internet Explorer 9 and earlier versions.</p>
+
+		<p>Gradually change the line-height property of the DIV element from 16px, up to 50px, and back to 16px:<p>
+		<div id="myDIV">
+		Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius.
+		</div>
+	</div>
+	<br/>
+	<a href="css.html">CSS Index</a>
+</body>
+</html>

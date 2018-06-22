@@ -1,0 +1,164 @@
+<html>
+<head>
+	<title>JS Tricks & Utilities</title>
+	<meta charset="utf-8"/>
+	<style>
+	div.relative {
+	    position: relative;
+	    width: 400px;
+	    height: 200px;
+	    border: 3px solid #8AC007;
+	}
+
+	div.absolute {
+	    position: absolute;
+	    right: 20px;
+	    width: 200px;
+	    height: 120px;
+	    border: 3px solid #8AC007;
+	} 
+	</style>
+</head>
+<body>
+	<h1>JS Tricks & Utilities</h1>
+	<ul>
+		<li><a href="https://gist.github.com/joyrexus/7307312">JQuery - Vanilla JS methods</a></li>
+		<li>
+			<h3>How to display all functions of an object:</h3>
+			<pre>
+				console.log(Object.getOwnPropertyNames(Math).filter(function (p) {
+    				return typeof Math[p] === 'function';
+				}));
+				<button onclick="displayAllFunctions(document)">Try it!</button>
+				<script>
+				function displayAllFunctions(param){
+					alert(param+" 's All Functions: ["+Object.getOwnPropertyNames(window).filter(function (p) {
+	    				return typeof window[p] === 'function';
+					})+"]")
+					console.log(Object.getOwnPropertyNames(Math).filter(function (p) {
+    				return typeof Math[p] === 'function';
+					}));
+				}
+
+				document.ficticia = function (){
+					return "hola"
+				}
+
+				 var myfunctions = [];
+				 function getAllFunctions(){ 
+			     
+			      for (var l in document){
+			        if (document.hasOwnProperty(l) && 
+			            document[l] instanceof Function &&
+			            !/myfunctions/i.test(l)){
+			          myfunctions.push(l);
+			        }
+			      }
+			      return myfunctions;
+			     }
+			     alert(getAllFunctions());
+				</script>
+			</pre>
+			<p><i>Explanation:</i> first you get all the properties of an Object w/Object.getOwnPropertyNames(Math)  & then you filter all properties by typeof === 'function'</p>
+		</li>
+		<li>
+			 <h3>get Property Value (off a CSS Class)</h3>
+			 <pre>
+				<div hidden id="yourID" class="relative">This div element has position: relative;
+				  <div class="absolute">This div element has position: absolute. It is placed 20 pixels to the left of the right edge of the containing positioned element (div with class="relative").</div>
+				</div>
+			 	<i>byClass: </i>
+			 	alert(window.getComputedStyle(document.getElementsByClassName("relative")[0],null).getPropertyValue('display'))
+			 	<button onclick="getPropertyValueByClass()">Try it!</button>
+				<script>
+				function getPropertyValueByClass(){
+					alert("(getByClass)the display value is: "+window.getComputedStyle(document.getElementsByClassName("relative")[0],null).getPropertyValue('display'));
+				}
+				function getCssAttr(id, atribute){
+					window.getComputedStyle(document.getElementById(id), null).getPropertyValue(atribute)
+				}
+				</script>
+
+			 	or
+
+			 	<i>byId:</i>
+	    		alert(window.getComputedStyle(document.getElementById('${MyId}'), null).getPropertyValue('display'));
+	    		<button onclick="getPropertyValueById()">Try it!</button>
+	    		<script type="text/javascript">
+	    		function getPropertyValueById(){
+					alert("(getById)the display value is: "+window.getComputedStyle(document.getElementById('yourID'), null).getPropertyValue('display'));
+				}
+				</script>
+	      </pre>
+		</li>
+		<li>
+			<h3>Método: bind(context) & call(context)</h3>
+			<pre>
+				/**
+				Explicacion: 
+				el método bind() crea una función que cuando se ejecuta, tiene
+				un contexto "this" asociado por nosotros vía parámetro "bind(context)".
+
+				Docs: https://www.codejobs.biz/es/blog/2016/03/22/javascript-es-facil-como-funciona-el-metodo-bind-3
+				**/
+				var x = 9;
+
+				var module = {
+					x: 85;
+					getX: function(){
+						return this.x
+					}	
+				};
+
+				//Aquí regresa x: 85
+				module.getX(); 
+
+
+				var retrieveX = module.getX;
+
+				/**ó
+
+				var retrieveX = function(){
+					return this.x
+				}
+				**/
+
+				//Aquí regresa x:9, si no lo definí en éste contexto general, entonces devuelve undefined.
+				retrieveX();
+
+				var context = {
+					x: 55;
+				};
+
+				var bindGetX = retrieveX.bind(context);
+
+				//Aquí devuelve x: 55, obtenido de bind(context);
+				bindGetX();
+
+				/******************************************
+
+				El Método call(context, param1, param2, ...); 
+
+				*******************************************/
+
+				//devuelve x: 55;
+				console.log(retrieve.call(context))
+
+
+				/******************************************
+
+				El Método aply(context, array[param1, param2, ...]); 
+
+				*******************************************/
+
+				
+			</pre>
+		</li>
+	</ul>
+	<br>
+	<br>
+	<br>
+	<br>
+	<a href="/">Index</a>
+</body>
+</html>

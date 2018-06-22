@@ -1,0 +1,50 @@
+<html>
+<head>
+	<title>wget</title>
+	<style type="text/css">
+		pre {
+		    display: block;
+		    padding: 9.5px;
+		    margin: 0 0 10px;
+		    font-size: 13px;
+		    line-height: 1.42857143;
+		    color: #333;
+		    word-break: break-all;
+		    word-wrap: break-word;
+		    background-color: #f5f5f5;
+		    border: 1px solid #ccc;
+		    border-radius: 4px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Wget</h1>
+	<pre>wget http://example.com/index.html</pre>
+	<p>This will download the file <em>index.html</em> to the current <em>folder</em>. To achieve result I described at the beggining we have to do some more magic:</p>
+	<pre>$ wget \
+     --recursive \
+     --no-clobber \
+     --page-requisites \
+     --html-extension \
+     --convert-links \
+     --restrict-file-names=windows \
+     --domains example.com \
+     --no-parent \
+         http://www.example.com/folder1/folder/
+	</pre>
+	<p>This will do exactly what we wanted. Let's see what each of this switches does:</p>
+	<ul>
+		<li><strong>--recursive</strong> - recurively download all files that are linked from main file,</li>
+		<li><strong>--no-clobber</strong> - do not overwrite files that already exist locally (useful when previous run failed for any reason),</li>
+		<li><strong>--page-requisites</strong> - download all page elements (JS, CSS, ..),</li>
+		<li><strong>--html-extension</strong> - add&nbsp;<em>.html</em> extension to files (if not already there),</li>
+		<li><strong>--convert-links</strong> - fix links in html files to work offline,</li>
+		<li><strong>--restrict-file-names=windows</strong> - rename files to work also in Windows,</li>
+		<li><strong>--domains example.com</strong> - limit downloads to listed domains (links that point to other domains will not be followed),</li>
+		<li><strong>--no-parent</strong> - do not download files form folders below given root folder (folder1/folder/ in our example; files from /folder1 are not going to be transferred).</li>
+	</ul>
+	<br>
+	<br>
+	<a href="/">Index</a>
+</body>
+</html>

@@ -1,0 +1,307 @@
+<html>
+<head>
+	<title>Web-Java Work</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+	Database (PL/SQL)
+
+1. Have you ever worked on PL-SQL or what your comfort level on SQL.  
+
+2. What is the size of data that you have worked with?
+Up to one thousand rows per table
+3. What is the complex query that you have written so far?
+4. How do you find the performance of the SQL query.  
+ the SQL "Explain Plan" will tell you what each route costs, and how the statement will use indexes and partitions.
+
+5. Can tell the reasons of having high cost in explain plan.  
+6. How 'EXPLAIN' Command works?
+ The EXPLAIN PLAN statement displays execution plans chosen by the Oracle optimizer for SELECT, UPDATE, INSERT, and DELETE statements. A statement's execution plan is the sequence of operations Oracle performs to execute the statement. The components of execution plans include:
+
+   - An ordering of the tables referenced by the statement
+
+   - An access method for each table mentioned in the statement
+
+   - A join method for tables affected by join operations in the statement
+
+7. What are views?
+Views are the fastes way to retrieve information from the database, with an already-executed query stored in the view
+
+8. which will perform fast a view or if we use the query directly that is used in a View.  
+The view
+9. What is NVL()
+The NVL function is used to replace NULL values by another value.
+The syntax for the NVL function is:
+NVL( value_in, replace_with )
+
+10. What are joins and name few of them?
+There are 4 different types of Oracle joins:
+
+    Oracle INNER JOIN (or sometimes called simple join)
+    Oracle LEFT OUTER JOIN (or sometimes called LEFT JOIN)
+    Oracle RIGHT OUTER JOIN (or sometimes called RIGHT JOIN)
+    Oracle FULL OUTER JOIN (or sometimes called FULL JOIN)
+    https://www.techonthenet.com/oracle/joins.php
+
+11. How do you find the duplicate records in SQL and delete only duplicate records.  
+There are many ways to find duplicate records, depends on what kind of duplicate data are you trying to find. Once you find the duplicate records you can delete those ones.
+
+12. How to find duplicate records can you tell the query. 
+ One of the easiest ways to do it is using group by. To do this, list all the columns where you want to identified the duplicates and group by clauses. You can then count how many times each combination appears with count(*), :
+
+  select * from MY_TABLE
+  where  (COLUMN1, COLUMN2) in (
+   select COLUMN1, COLUMN2
+ from   MY_TABLE
+ group  by COLUMN1, COLUMN2
+ having count(*) > 1
+  ) 
+
+13. If we get DB connection timeout. what do you do? how you dynamically increase the connections  
+14. Difference between Row Number and Row ID.  
+ROW ID is the physical location of a row. Consequently it is the fastest way of locating a row, faster even than a primary key lookup.
+ROW NUM is a pseudocolumn that contains the numbers indicating the order in which Oracle selects the rows from a table or set of joined rows. 
+
+15. What is a synonym in database?
+A synonym is an alternative name for objects such as tables, views, sequences, stored procedures, and other database objects. You generally use synonyms when you are granting access to an object from another schema and you don't want the users to have to worry about knowing which schema owns the object.
+
+16. What is database snapshot in SQL Server?
+A database snapshot is a read-only, static view of a SQL Server database (the source database). The database snapshot is transactionally consistent with the source database as of the moment of the snapshot's creation
+
+17. Given a complex application, what is your take as developer to fine tune the performance
+18. Have you worked with stored procedure? If yes, how do you use a stored procedure?
+From Java I use the spring class org.springframework.jdbc.object.StoredProcedure to implement a call to a SP
+
+19. How do you access first 100 lines
+The fastest way i know is by using the RowNum
+
+20. How do you access data from two tables with same column names
+SELECT t1.SAME_COLUMN_NAME, t2.SAME_COLUMN_NAME FROM
+MY_TABLE1 t1, MY_TABLE2 t2
+
+21. How do you access first 100 lines using SQL query?
+select * from (SELECT column FROM table ) WHERE ROWNUM <= 100
+
+<ul>
+	<h1>Answers</h1>
+	<li>
+		<pre>
+21. What is “static” keyword in java
+22. What is “final” keyword in java
+23. What is “this” keyword in Java
+24. when do you use a combination of both static and final keyword
+25. Questions on this and super keyword
+26. When to use array and array list
+27. How does array list work internally
+28. What are different type of collections that you have used?  
+29. Which is faster between ArrayList and Linked List, to know the size of list.  
+30. Difference between Tree Map and HashMap ?  
+31. on get() operation. Which is faster between TreeMap and HashMap.  
+32. Have ever worked on Multi-Threading. Explain the concept of multi-threading?
+33. Difference between SOAP and Rest Service. when to use which and dis-  advantages of in SOAP and REST 
+34. Whats the difference between POST, PUT and GET HTTP Request
+35. You have to upload million records in a DB. Whats the best way to do it?
+36. What is your take as a developer when requirements keep on changing?
+37. Difference between buffered reader and data input stream?
+38. Difference between string and stringbuffer?
+24. Command to find a process that is running on the UNIX machine. 
+32. Interfaces vs Abstract Classes. Multiple inheritance. 
+1. Tell me about you self and you current role including number of years of experience, experience in Java and Oracle and about most recent project 
+		</pre>
+	</li>
+
+	<li><i><b>21. What is “static” keyword in java</b></i>
+		<br><br>
+		<ul>
+			The <b>static</b> keyword in Java means that a variable or function belong to the class, not to a specific instance of that class. <br>
+			And it is shared between all instances of that class. So if you have a variable: private static int i = 0; and you increment it ( i++ ) in one instance, the change will be reflected in all other instances. <br>
+			There is not such a thing as a top level static class, it exists as nested static classes for inner uses.
+			Ex: public class A{
+					public static class B{}
+			}
+		</ul>
+	</li>
+	<br>
+	<br>
+	<li><i><b>22. What is “final” keyword in java</b></i>
+		<br><br>
+		<ul>The <b>final</b> keyword has many uses in Java, for instance: <br><br>
+			<li>on Variables: A final variable can only be initialized once. Once a final variable has been assigned, it always contains the same value. (It does not need to be initialized at the point of declaration: this is called a "blank final" variable)</li>
+			<br>
+			<li>on Classes: A final class cannot be subclassed. Doing this can confer security and efficiency benefits to the program and to the programmers (many of the Java standard library classes are final, such as java.lang.System, java.lang.String and java.lang.Math).</li>
+			<br>
+			<li>on Methods: A final method cannot be overridden or hidden* by subclasses (hidden*: is like override property in polymorphism but in the case of a ClassMethod (static)[Remember you can't hide static <b>final</b> Methods]). <br>This is used to prevent unexpected behavior from a subclass altering a method that may be crucial to the function or consistency of the class.</li>
+			<br>
+			<li>on Objects: If a final variable holds a reference to an object, then the state of the object may be changed (by operations on the object), but the variable will always refer to the same space in memory of the object.</li>
+		</ul>
+	</li>
+	<br>
+	<li><i><b>23. What is “this” keyword in Java</b></i>
+		<br><br>
+		 The keyword <b>this</b> in Java works as a reference to the current object (the object whose method or constructor is being called).
+		 You can access to any member of the instance (like atributes or methods) by invoking <b>this</b>.<br><br>
+		 this also can be used to invoke the constructor by calling <b>this</b>();
+	</li>
+	<br>
+	<li><i><b>24. when do you use a combination of both static and final keyword</b></i>
+		<br><br>
+		For instance to declare a Class constant in Java:<br>
+		(public/private) static final TYPE NAME = VALUE;<br><br>
+		Ex: Math.PI: public static final double PI = 3.14159265358979323846;<br>
+		or Math.E: public static final double E = 2.7182818284590452354;
+		<br><br>
+		or a ClassMethod that you want to cannot to be hidden:<br>
+		public static final youCantHiddeMe(){System.out.println("Muahaha")};
+	</li>
+	<br>
+	<li><i><b>25. Questions on this and super keyword</b></i>
+		<br><br>
+		<b>super</b> is used to access methods of the base class while <b>this</b> is used to access methods of the current class. <br>
+		Extending the notion, if you call super(), it refers to constructor of the base class, and if you call this(), it refers to the constructor of the very class where you are writing the code.
+	</li>
+	<br>
+	<li><i><b>26. When to use array and array list</b></i>
+		<br><br>
+		Array is a fixed size data structure while ArrayList is has a dynamic size data structure. <br>
+		Array members are accessed using its indexes [0], while ArrayList has a set of methods to access elements and modify them. <br>
+		Array can contain both primitive data types as well as objects of a class depending on the definition of the array's type. However, ArrayList only supports object entries, not the primitive data types. <br>
+		Since ArrayList can’t be created for primitive data types, members of ArrayList are always references to objects at different memory locations (See this for details). Therefore in ArrayList, the actual objects are never stored at contiguous locations. References of the actual objects are stored at contiguous locations. <br>
+		In array, it depends whether the arrays is of primitive type or object type. In case of primitive types, actual values are contiguous locations, but in case of objects, allocation is similar to ArrayList. <br> <br>
+		Particulary, when you want efficiency or you need primitive types to be stored you should choose Arrays, but if you're looking for flexibility ArrayList is a better choose.
+	</li>
+	<br>
+	<li><i><b>27. How does array list work internally</b></i>
+		<br><br>
+		ArrayList implements the List interface (who also implements the Collection interface) with a dynamically re-sizing array. <br>
+		ArrayList also works innerly as a holder of references of the different objects (i.e instances) of the same class in contiguous locations in memory [the actual objects generally are not in contigous locations].
+	</li>
+	<br>
+	<li><i><b>28. What are different type of collections that you have used?</b></i>
+		<br><br>
+		Honestly I've only worked with ArrayList, the generic version ArrayList&lt;T&gt; and its parents classes for polymorphism operations.
+		Wherever i could use anyother of the implementations of the Collection interface:
+		<a target="_blank" href="https://docs.oracle.com/javase/7/docs/api/java/util/Collection.html">https://docs.oracle.com/javase/7/docs/api/java/util/Collection.html</a>
+	</li>
+	<br>
+	<li><i><b>29. Which is faster between ArrayList and Linked List, to know the size of list.  </b></i>
+		<br><br>
+		<pre>
+		<b>List Type 		add() 	get() 		iterate() 	size()</b>
+		Vector 			12.691 	0.143 		0.286 		0.047
+		Vector(w/size)	 	10.134 	0.045 		0.042 		0.009  		*All numbers in miliseconds
+		ArrayList 		9.873 	0.051 		0.037 		0.013  			 See <a target="_blank" href="http://www.javacreed.com/comparing-the-performance-of-various-list-implementations/">docs</a>
+		ArrayList(w/size)	9.845 	0.036 		0.003 		0.005
+		LinkedList 		9.913 	172.824		0.538 		0.030
+		Stack 			9.843 	0.105 		0.129 		0.060
+ 		CopyOnWriteArrayList	36.909 	0.092 		0.099 		0.051
+		</pre>
+
+		In all cases the call of the method size() is faster with ArrayList than LinkedList
+	</li>
+	<br>
+	<li><i><b>30. Difference between Tree Map and HashMap ?  </b></i>
+		<br><br>
+		 The HashMap class uses the hash table as a data structure whereas the TreeMap uses the red-black tree as a data structure. Another difference between HashMap and Treemap is that the HashMap does not preserve the insertion order whereas, the Treemap does. <br>
+		 HashMap allows Null key once and Null value any number of time whereas the TreeMap does not allow Null key but allows Null Values any number of time. <br>
+		 HashMap operates faster. TreeMap in comparison to HashMap operates slower. <br> <br>
+
+		 Additionally:
+		 HashMap and TreeMap are both implementations of the Map interface. Map is an object that stores key-value pairs, where each key is unique and but there may be duplicate values.
+		 <br> <br>
+		  Not Thread Safe :  Both HashMap and TreeMap class are unsynchronized . In other words , multiple threads can access the same object at a given time.
+		Although you can externally make both the classes synchronized :
+		<br><br>
+		HashMap :      Map m = Collections.synchronizedMap(new HashMap (...));<br>
+		TreeMap :       Map m = Collections.synchronizedSortedMap(new TreeMap (...));
+	</li>
+	<br>
+	<li><i><b>31. on get() operation. Which is faster between TreeMap and HashMap.  </b></i>
+		<br><br>
+		get() operation performs faster with HashMap than with TreeMap. <a target="_blank" href="https://stackoverflow.com/questions/7057430/treemap-or-hashmap-faster">here</a> is a complete code-example of their performance.
+	</li>
+	<br>
+	<li><i><b>32. Have ever worked on Multi-Threading. Explain the concept of multi-threading?  </b></i>
+		<br><br>
+		Work in progress... 
+	</li>
+	<br>
+	<li><i><b>33. Difference between SOAP and Rest Service. when to use which and dis-  advantages of in SOAP and REST   </b></i>
+		<br><br>
+		SOAP is the first aproach to web services and it was built with a XML-based structure for message exchange. It's on top of HTTP protocol and works mostly with the method GET, not taking advantage of the others HTTP verbs. SOAP is usually heavier and slower than REST due to its verbose XML format.
+		<br><br>
+		REST describes a set of architectural principles for build a JSON based element-structure with less meta-information. While accessing RESTful resources with HTTP protocol, the unique URL of the resource serves as the resource identifier and GET, PUT, DELETE, POST and HEAD are the standard HTTP operations to be performed on that resource.
+		<br><br>
+		Both SOAP and RESTful architectures have proven themselves to be reliable, successful and capable of scaling, so the decision to use REST or SOAP has less to do with their efficacy and more to do with how either approach fits in with an organization’s software development culture and project needs.
+	</li>
+	<br>
+	<li><i><b>34. Whats the difference between POST, PUT and GET HTTP Request  </b></i>
+		<br><br>
+		POST: Is used to create an element.	<br>
+		PUT: Is used to modify an element. <br>
+		GET:  Is used to retrieve an element. This verb is also idempotent* (*a method that can be called many times without different outcomes) and its requests can be cached.
+	</li>
+	<br>
+	<!--<li><i><b>35. You have to upload million records in a DB. Whats the best way to do it?  </b></i>
+		<br><br>
+		
+	</li>
+	<br>-->
+	<li><i><b>36. What is your take as a developer when requirements keep on changing?  </b></i>
+		<br><br>
+		To keep my zen-state untouch
+	</li>
+	<br>
+	<li><i><b>37. Difference between buffered reader and data input stream?  </b></i>
+		<br><br>
+		The main difference is that the DataInputStream works with the binary and other types of data, while the BufferedReader works better with character and String data. (In fact the readLine() method of DataInputStream was deprecated and its encourage to use BufferedReader's readLine())
+		<br><br>
+		BufferedReader reads text from a character-input stream, buffering characters so as to provide for the efficient reading of characters, arrays, and lines. <br>
+		Without buffering, each invocation of read() or readLine() could cause bytes to be read from the file, converted into characters, and then returned, which can be very inefficient. <br>
+		Wrapping the Reader with the BufferReader allow us to preload the data into a reserved area of memory (the buffer), and then to be returned.
+		<br><br>
+		A DataInputStream lets an application read primitive Java data types (including Byte) from an underlying input stream. An application uses a data output stream to write data that can later be read by a data input stream. <br>
+		DataInputStream is not necessarily safe for multithreaded access. Thread safety is optional and is the responsibility of users of methods in this class.
+		<br><br>
+		The preferred way to read lines of text is via the BufferedReader.readLine() method. Programs that use the DataInputStream class to read lines can be converted to use the BufferedReader class by replacing code of the form: <br> <br>
+
+         DataInputStream d = new DataInputStream(in);
+     		<br><br>
+
+		with:	<br><br>
+
+         BufferedReader d
+              = new BufferedReader(new InputStreamReader(in));
+     
+	</li>
+	<br>
+	<li><i><b>38. Difference between string and stringbuffer?  </b></i>
+		<br><br>
+		StringBuffer is a thread-safe, mutable sequence of characters. A string buffer is like a String, but can be modified. At any point in time it contains some particular sequence of characters, but the length and content of the sequence can be changed through certain method calls. <br>
+		String buffers are safe for use by multiple threads. The methods are synchronized where necessary so that all the operations on any particular instance behave as if they occur in some serial order that is consistent with the order of the method calls made by each of the individual threads involved. <br> <br>
+
+		The principal operations on a StringBuffer are the append and insert methods, which are overloaded so as to accept data of any type. Each effectively converts a given datum to a string and then appends or inserts the characters of that string to the string buffer. The append method always adds these characters at the end of the buffer; the insert method adds the characters at a specified point. 
+		<br><br>
+		Strings are constant; their values cannot be changed after they are created. String buffers support mutable strings. Because String objects are immutable they can be shared.
+		String concatenation (+) is implemented through the StringBuilder(or StringBuffer) class and its <i>append</i> method.
+		<br><br>
+		As of release JDK 5, the StringBuffer class has been supplemented with an equivalent class designed for use by a single thread, StringBuilder. The StringBuilder class should generally be used in preference to this one, as it supports all of the same operations but it is faster, as it performs no synchronization. (*for non-multi-thread programs)
+	</li>
+	<br><br><br>
+	<li>
+		<b>About Hashing and Hashcode</b>
+<br><br>
+Comparing two strings letter by letter in a for loop is a time taking process. To make faster, the JVM converts each string into an integer number called hashcode. Different strings with different sequence of characters have different hashcodes. Comparison with integer numbers gives maximum performance. Usage of hashcode numbers for comparison, searching of duplicate elements and identification is faster.
+ <br><br>
+Hashing is process of converting a string or object into a 32-bit integer number. Two objects are said to be equal if their hashcodes are same. hashCode() is used in combination of equals() method. When compared, hashing is done automatically by the JVM. Hashing, in data structures, is done implicitly in the basic operations with add(), contains(), remove() and size() etc. Hashing is more useful to compare the sets of large content.</li>
+<br>
+<li>
+	<b>What is synchronized?</b>
+	<br><br>
+The concept of synchronization comes in multithreading. In multithreaded applications, there is every chance that multiple threads accessing the same source of data at the same time. This results in data corruption and data inconsistency. Synchronization avoids this by allowing only one thread to access the resource of data at a time. <br><br>
+
+That is, when one thread is modifying the data of Hashtable, the other thread cannot modify. The other thread should wait until the first one completes its job. This is done by acquiring the lock on Hashtable by the first thread. The lock will not be released until the first completes its job.
+</li>
+</ul>
+</body>
+</html>

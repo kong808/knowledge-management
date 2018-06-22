@@ -1,0 +1,77 @@
+	Database (PL/SQL)
+
+1. Have you ever worked on PL-SQL or what your comfort level on SQL.  
+
+2. What is the size of data that you have worked with?
+Up to one thousand rows per table
+3. What is the complex query that you have written so far?
+4. How do you find the performance of the SQL query.  
+ the SQL "Explain Plan" will tell you what each route costs, and how the statement will use indexes and partitions.
+
+5. Can tell the reasons of having high cost in explain plan.  
+6. How 'EXPLAIN' Command works?
+ The EXPLAIN PLAN statement displays execution plans chosen by the Oracle optimizer for SELECT, UPDATE, INSERT, and DELETE statements. A statement's execution plan is the sequence of operations Oracle performs to execute the statement. The components of execution plans include:
+
+   - An ordering of the tables referenced by the statement
+
+   - An access method for each table mentioned in the statement
+
+   - A join method for tables affected by join operations in the statement
+
+7. What are views?
+Views are the fastes way to retrieve information from the database, with an already-executed query stored in the view
+
+8. which will perform fast a view or if we use the query directly that is used in a View.  
+The view
+9. What is NVL()
+The NVL function is used to replace NULL values by another value.
+The syntax for the NVL function is:
+NVL( value_in, replace_with )
+
+10. What are joins and name few of them?
+There are 4 different types of Oracle joins:
+
+    Oracle INNER JOIN (or sometimes called simple join)
+    Oracle LEFT OUTER JOIN (or sometimes called LEFT JOIN)
+    Oracle RIGHT OUTER JOIN (or sometimes called RIGHT JOIN)
+    Oracle FULL OUTER JOIN (or sometimes called FULL JOIN)
+    https://www.techonthenet.com/oracle/joins.php
+
+11. How do you find the duplicate records in SQL and delete only duplicate records.  
+There are many ways to find duplicate records, depends on what kind of duplicate data are you trying to find. Once you find the duplicate records you can delete those ones.
+
+12. How to find duplicate records can you tell the query. 
+ One of the easiest ways to do it is using group by. To do this, list all the columns where you want to identified the duplicates and group by clauses. You can then count how many times each combination appears with count(*), :
+
+  select * from MY_TABLE
+  where  (COLUMN1, COLUMN2) in (
+   select COLUMN1, COLUMN2
+ from   MY_TABLE
+ group  by COLUMN1, COLUMN2
+ having count(*) > 1
+  ) 
+
+13. If we get DB connection timeout. what do you do? how you dynamically increase the connections  
+14. Difference between Row Number and Row ID.  
+ROW ID is the physical location of a row. Consequently it is the fastest way of locating a row, faster even than a primary key lookup.
+ROW NUM is a pseudocolumn that contains the numbers indicating the order in which Oracle selects the rows from a table or set of joined rows. 
+
+15. What is a synonym in database?
+A synonym is an alternative name for objects such as tables, views, sequences, stored procedures, and other database objects. You generally use synonyms when you are granting access to an object from another schema and you don't want the users to have to worry about knowing which schema owns the object.
+
+16. What is database snapshot in SQL Server?
+A database snapshot is a read-only, static view of a SQL Server database (the source database). The database snapshot is transactionally consistent with the source database as of the moment of the snapshot's creation
+
+17. Given a complex application, what is your take as developer to fine tune the performance
+18. Have you worked with stored procedure? If yes, how do you use a stored procedure?
+From Java I use the spring class org.springframework.jdbc.object.StoredProcedure to implement a call to a SP
+
+19. How do you access first 100 lines
+The fastest way i know is by using the RowNum
+
+20. How do you access data from two tables with same column names
+SELECT t1.SAME_COLUMN_NAME, t2.SAME_COLUMN_NAME FROM
+MY_TABLE1 t1, MY_TABLE2 t2
+
+21. How do you access first 100 lines using SQL query?
+select * from (SELECT column FROM table ) WHERE ROWNUM <= 100

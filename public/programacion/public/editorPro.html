@@ -1,0 +1,43 @@
+<html>
+<head>
+	<title>EditorPro</title>
+	<style type="text/css">
+		body{
+			margin: 0;
+			background-color: #333733;
+		}
+		#editor{
+			height: 100%;
+			width: 100%;
+			border: 0;
+			color: #ff0066;
+			background-color: #333733;
+			counter-reset: line;
+		}
+		span::before {
+	      counter-increment: line;
+	      content: counter(line);
+	      display: inline-block;
+	      border-right: 1px solid #ddd;
+	      padding: 0 .5em;
+	      margin-right: .5em;
+	      color: #888
+	    }
+	</style>
+</head>
+<body>
+	<div id="editor" contenteditable="true">
+		<span>hola</span>
+		<br>
+		<span>se</span>
+	</div>
+	<script>
+	//Al apretar Enter se crea un span nuevo justo despues del último dentro del 'editor'
+	onkeypress(13){
+		document.create(span)
+		document.insertAfter(document.getElementById('editor').getAllChilds('span').getLast())
+	}
+
+	</script>
+</body>
+</html>

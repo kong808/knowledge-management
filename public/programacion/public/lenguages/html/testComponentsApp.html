@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Test Components App</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+	<h1>Test Components App</h1>
+	<section class="row">
+		<section class="col-4">
+			<section id="newComponent" style="height:80px; width:80px;">
+			
+			</section>
+		</section>
+		<section class="col-4"></section>
+		<section class="col-4"></section>
+	</section>	
+	<div id="topBar"> <a href ="#" onclick="load_home()"> HOME </a> </div>
+	<div id ="content"> </div>
+	<button onclick="alert(Math.randomNum(1,10))">Go</button>
+	<a href="/">Index</a>
+	<script>
+ 		function load_home(){
+    		document.getElementById("content").innerHTML='<object type="text/html" data="home.html" ></object>';
+    		//document.getElementById("clap2").setAttribute('visibility', 'visible');
+    		document.getElementById("content").object
+		}
+	</script>
+	<script>
+		var template ={tmpl: '<section id="myComponent">'+
+	'<style type="text/css">'+
+	'#myComponent{'+
+		'height:80px;'+
+		'width:80px;'+
+	'}'+
+	'#clap{'+
+		'height:100%;'+
+		'width: 100%;'+
+		'background-color: red;'+
+		'visibility: visible;'+
+		'opacity:0;'+
+		'-webkit-transition-property: width, opacity; /* Safari */'+
+   		'-webkit-transition-duration: 3.5s; /* Safari */'+
+		'transition-property: width, opacity;'+
+    	'transition-duration: 3.5s;'+
+	'}'+
+	'</style>'+
+	'<div id="clap"></div>'+
+'</section>'}
+	
+	var sec = document.createElement('section')
+	sec.innerHTML = template.tmpl;
+	document.getElementById("newComponent").appendChild(sec); 
+	setTimeout(function(){
+		document.getElementById("clap").setAttribute('style', 'opacity:1;'); //This sets the atributte value on TAG level
+	}, 2000)
+	Math.randomNum = function(min, max){
+		return Math.floor((Math.random() * max) + min);
+	}
+
+	/*
+	for(var i =0; i<8; i++){
+		var left = Math.floor((Math.random() * 1000) + 100);
+		var top = Math.floor((Math.random() * 1000) + 100);
+		var style =  "width=200, height=100, left="+left+", top="+top;
+		var myWindow = window.open("", "",style);
+		myWindow.document.write("<p>This is 'myWindow'</p>");
+		//setTimeout(function(){ myWindow.close() }, 3000); 
+	}
+	*/
+	
+	document.getElementById('clap').style
+	window.getComputedStyle(document.getElementById('clap'), null)
+	</script>
+</body>
+</html>

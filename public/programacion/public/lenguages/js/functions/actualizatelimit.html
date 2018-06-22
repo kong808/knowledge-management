@@ -1,0 +1,107 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <title>Ejercicio 17 - Limitar número de caracteres en textarea</title> 
+  <link rel="stylesheet" type="text/css" href="css/functions.css">
+</head>
+<body>
+  <h1>Twitter limit</h1>
+  <div id="info">M&aacute;ximo 140 caracteres</div>
+  <textarea id="texto" onkeypress="return limiter(event, 140);" onkeyup="actualizeInfo(140)" rows="6" cols="30"></textarea>
+  <div style="float:right;">
+    <b>Code: </b>
+    <br>
+    <pre>
+      <i><b>HTML: </b> <br>        &lt;div id="info"&gt;M&aacute;ximo 140 caracteres&lt;/div&gt; <br>        &lt;textarea id="texto" onkeypress="return limiter(event, 140);" onkeyup="actualizeInfo(140)" rows="6" cols="30"&gt;
+        &lt;/textarea&gt;</i>
+    </pre>
+      <br>
+    <pre>
+      <i><b>JS:</b></i>
+     function limiter(elEvento, maximoCaracteres) {
+        var elemento = document.getElementById("texto");
+       
+        // Obtener la tecla pulsada 
+        var evento = elEvento || window.event;
+        var codigoCaracter = evento.charCode || evento.keyCode;
+        // Permitir utilizar las teclas con flecha horizontal
+        if(codigoCaracter == 37 || codigoCaracter == 39) {
+          actualizeInfo(maximoCaracteres)
+          return true;
+        }
+       
+        // Permitir borrar con la tecla Backspace y con la tecla Supr.
+        if(codigoCaracter == 8 || codigoCaracter == 46) {
+          actualizeInfo(maximoCaracteres)
+          return true;
+        }
+        else if(elemento.value.length >= maximoCaracteres ) {
+          actualizeInfo(maximoCaracteres)
+          return false;
+        }
+        else {
+          actualizeInfo(maximoCaracteres)
+          return true;
+        }
+      }
+       
+      function actualizeInfo(maximoCaracteres) {
+        var elemento = document.getElementById("texto");
+        var info = document.getElementById("info");
+       
+        if(elemento.value.length >= maximoCaracteres ) {
+          info.innerHTML = "M&aacute;ximo "+maximoCaracteres+" caracteres";
+        }
+        else {
+          info.innerHTML = "Puedes escribir hasta "+(maximoCaracteres-elemento.value.length)+" caracteres adicionales";
+        }
+      }
+    </pre>
+  </div>
+  <br>
+  <br>
+  <a href="/">Index</a>
+
+  <script type="text/javascript">
+    function limiter(elEvento, maximoCaracteres) {
+      var elemento = document.getElementById("texto");
+     
+      // Obtener la tecla pulsada 
+      var evento = elEvento || window.event;
+      var codigoCaracter = evento.charCode || evento.keyCode;
+      // Permitir utilizar las teclas con flecha horizontal
+      if(codigoCaracter == 37 || codigoCaracter == 39) {
+        actualizeInfo(maximoCaracteres)
+        return true;
+      }
+     
+      // Permitir borrar con la tecla Backspace y con la tecla Supr.
+      if(codigoCaracter == 8 || codigoCaracter == 46) {
+        actualizeInfo(maximoCaracteres)
+        return true;
+      }
+      else if(elemento.value.length >= maximoCaracteres ) {
+        actualizeInfo(maximoCaracteres)
+        return false;
+      }
+      else {
+        actualizeInfo(maximoCaracteres)
+        return true;
+      }
+    }
+     
+    function actualizeInfo(maximoCaracteres) {
+      var elemento = document.getElementById("texto");
+      var info = document.getElementById("info");
+     
+      if(elemento.value.length >= maximoCaracteres ) {
+        info.innerHTML = "M&aacute;ximo "+maximoCaracteres+" caracteres";
+      }
+      else {
+        info.innerHTML = "Puedes escribir hasta "+(maximoCaracteres-elemento.value.length)+" caracteres adicionales";
+      }
+    }
+     
+  </script>
+</body>
+</html>

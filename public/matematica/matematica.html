@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Matemáticas</title>
+</head>
+<body>
+	<h1>Matemáticas</h1>	
+	<ul>
+		<h3>Grandes Matemáticos:</h3>
+		<li><a href="https://en.wikipedia.org/wiki/Leonhard_Euler">Leonhard Euler (15 abril 1707)</a></li>
+		<li><a href="https://en.wikipedia.org/wiki/Carl_Friedrich_Gauss">Carl F. Gauss (30 abril 1777)</a></li>
+		<li><a href="https://en.wikipedia.org/wiki/Bernhard_Riemann">Bernhard Riemann (17 septiembre 1826)</a></li>
+		<li><a href="https://en.wikipedia.org/wiki/Srinivasa_Ramanujan">Srinivasa Ramanujan (22 Diciembre 1887)</a></li>
+		<li><a href="https://en.wikipedia.org/wiki/Terence_Tao">Terence Tao (17 Julio 1975)</a></li>
+		<li><a href="https://www.youtube.com/watch?v=U5kIdtMJGc8">Jim Simons - The man who cracked Wall Street</a></li>
+		<li><a href="https://www.youtube.com/watch?v=QNznD9hMEh0">Jim Simons - numberphile full Enterview</a></li>
+	</ul>
+	<ul>
+		<h3>Common mathematical constants</h3>
+	    <li>Archimedes' constant π</li>
+	    <li>Euler's number e.</li>
+	    <li>Pythagoras' constant √2.</li>
+	    <li>The imaginary unit i.</li>
+	    <li>The Feigenbaum constants α and δ</li>
+	    <li>Apéry's constant ζ(3)</li>
+	    <li>The golden ratio φ</li>
+	    <li>The Euler–Mascheroni constant γ</li>
+	</ul>
+	<br>
+	<br>
+	<br>	
+	<a href="http://www.lmfdb.org/">L-functions DataBase & Code!</a>
+	<hr>
+	<br>
+	<ul>
+		<h3>Videos:</h3>
+		<li><a href="https://www.youtube.com/watch?v=jcKRGpMiVTw">Ramanujan explicación 1+2+3+4...=-1/12</a></li>
+		<li><a href=""></a></li>
+	</ul>
+	<ul>
+		<h3>Wiki's:</h3>
+		<li><a href="https://en.wikipedia.org/wiki/Fermat%27s_Last_Theorem">Fermat's last Theorem</a></li>
+		<li><a href="https://en.wikipedia.org/wiki/Goldbach%27s_conjecture">Goldbach's conjecture</a></li>
+	</ul>
+	<br><br><br><br>
+	<hr>
+	<h1>Regla de Tres simple</h1>
+	<form action="">
+		<input type="number">---------------<input type="number">
+		<input type="number">---------------x
+		<input type="submit" value="Go">
+	</form>
+	<a href="/">Index</a>
+
+	<script>
+//----------------PRIMES's MODULE-------------------//
+	var  primes = [], noPrimes = [];
+		function getPrimes(max) {
+		    var sieve = [], i, j;
+		    noPrimes.push(1);
+		    for (i = 2; i <= max; ++i) {
+		        if (!sieve[i]) {
+		            // i has not been marked -- it is prime
+		            primes.push(i);
+		            for (j = i << 1; j <= max; j += i) {
+		                sieve[j] = true;
+		            }
+		        }
+		        else {
+		        	noPrimes.push(i);
+		        }
+		    }
+		}
+
+		/*
+		Data:
+
+		TwinPrimes Conjecture-->	Pn-1 - Pn = 2  infinitly often (i.o.)
+		Yitang "Tom" Zhang (May2013)-->	Pn-1 - Pn = 70.000.000  (i.o.)
+		PolyMaths 8  --> Pn-1 - Pn = 4.680  (i.o.)
+		Rienmann Z function y Map of Multiplications by Nikola Tesla --> tienen que ver con los primos
+		*/
+
+		getPrimes(100)
+		/*
+		alert(primes);
+		alert(primes.length)
+		alert(noPrimes)
+		alert(noPrimes.length)
+		*/
+//---------------- END -------------------//
+//---------------- N: NATURALS MODULE -------------------//
+ 	var N = []
+ 	function getNaturals(max){
+ 		for (i = 0; i <= max; ++i) {
+ 			N.push(i)
+ 		}
+ 		return N;
+ 	}
+ 	getNaturals(100)
+ 	//alert(N)
+//---------------- END --------------//
+//---------------- Z: INTEGERS MODULE -------------------//
+ 	var Z = []
+ 	function getZIntegers(max){
+ 		for (i =-max; i <= max; ++i) {
+ 			Z.push(i)
+ 		}
+ 		return Z;
+ 	}
+ 	getZIntegers(100)
+ 	//alert(Z)
+//---------------- END --------------//
+function(a, b){
+	return a-b
+}
+(x,y) <= (w,z)
+//
+
+//---------------- Class & OOP in JS -------//
+class Numbers {
+
+	constructor(){
+		this.N = getNaturals(100)
+		this.Z = getZIntegers(100)
+	}
+
+	static foo(){
+		alert("hey")
+	}
+
+	bar(){
+		alert("I don't go!")
+	}
+}
+let numb = new Numbers()
+alert(numb.N)
+alert(numb.Z)
+
+class Hijo extends Numbers{
+	bar(){
+		alert("let's go!")
+	}
+}
+
+var someFunction = (function(){
+	alert(3)
+}());
+
+
+
+	</script>
+</body>
+</html>

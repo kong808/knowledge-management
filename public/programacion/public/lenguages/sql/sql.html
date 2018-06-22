@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>SQL</title>
+</head>
+<body>
+	<h1>SENTENCIAS SQL</h1>	
+	<h2>(DDL, DML, DCL Y TCL)</h2>
+	<ul>
+		<li>DATA DEFINITION LANGUAGE ( DDL)
+			<ul>
+				<li>CREATE - PARA CREAR OBJETOS EN LA BASE DE DATOS</li>
+				<li>ALTER - ALTERA LA ESTRUCTURA DE LA BASE DE DATOS</li>
+				<li>DROP - ELIMINA LOS OBJETOS DE LA BASE DE DATOS</li>
+				<li>TRUNCATE - ELIMINAR TODOS LOS REGISTROS DE UNA TABLA , INCLUYENDO TODOS LOS ESPACIOS ASIGNADOS A LOS REGISTROS SE ELIMINAN</li>
+				<li>COMMENT - AGREGAR COMENTARIOS AL DICCIONARIO DE DATOS</li>
+				<li>RENAME - CAMBIAR EL NOMBRE DE UN OBJETO</li>
+			</ul>
+			<p><i>descripcion:</i>Se utilizan para definir la estructura de base de datos o esquema.
+			Es un lenguaje proporcionado por el sistema de gestión de base de datos que permite a los usuarios 
+			de la misma llevar a cabo las tareas de definición de las estructuras que almacenarán los datos así 
+			como de los procedimientos o funciones que permitan consultarlos. <br>
+			Un Data Definition Language o Lenguaje de descripción de datos ( DDL ) es un lenguaje de 
+			programación para definir estructuras de datos . <br>
+			El término DDL fue introducido por primera vez en relación con el modelo de base de datos 
+			CODASYL, donde el esquema de la base de datos ha sido escrito en un lenguaje de descripción de 
+			datos que describe los registros, los campos, y "conjuntos" que conforman el usuario modelo de 
+			datos. <br>
+			Más tarde fue usado para referirse a un subconjunto de SQL, pero ahora se utiliza en un sentido 
+			genérico para referirse a cualquier lenguaje formal para describir datos o estructuras de 
+			información, como los esquemas XML.</p>
+		</li>
+		<li>DATA MANIPULATION LANGUAGE (DML)
+			<ul>
+				<li>SELECT - RECUPERAR DATOS DE LA BASE DE DATOS.</li>
+				<li>INSERT - INSERTAR DATOS EN UNA TABLA .</li>
+				<li>UPDATE - ACTUALIZACIONES DE DATOS EXISTENTES EN UNA TABLA.</li>
+				<li>DELETE - ELIMINA TODOS LOS REGISTROS DE UNA TABLA.</li>
+				<li>MERGE - OPERACIÓN UPSERT (INSERCIÓN O ACTUALIZACIÓN).</li>
+				<li>CALL - LLAMA A UN PL / SQL O SUBPROGRAMA JAVA.</li>
+				<li>EXPLAIN PLAN - EXPLICAR LA RUTA DE ACCESO A LOS DATOS.</li>
+				<li>LOCK TABLE - CONCURRENCIAS DE CONTROL.</li>
+			</ul>
+			<p><i>descripcion:</i>Se utilizan para la gestión de datos dentro de los objetos de esquema.
+			Es un idioma proporcionado por los sistemas gestores de bases de datos que permite a los usuarios 
+			de la misma llevar a cabo las tareas de consulta o modificación de los datos contenidos en las Bases 
+			de Datos del Sistema Gestor de Bases de Datos. El lenguaje de manipulación de datos más popular 
+			hoy día es SQL, usado para recuperar y manipular datos en una base de datos relacional. Otros 
+			ejemplos de DML son los usados por bases de datos IMS/DL1, CODASYL u otras.</p>
+		</li>
+		<li>
+			DATA CONTROL LANGUAGE (DCL)
+			<ul>
+				<li>GRANT: Permite dar permisos a uno o varios usuarios o roles para realizar tareas 
+determinadas.</li>
+				<li>REVOKE: Permite eliminar permisos que previamente se han concedido con GRANT.</li>
+				<li>Las tareas sobre las que se pueden conceder o denegar permisos son las siguientes:
+					<ul>
+						<li>CONNECT</li>
+						<li>SELECT</li>
+						<li>INSERT</li>
+						<li>UPDATE</li>
+						<li>DELETE</li>
+						<li>USAGE</li>
+					</ul>
+				</li>
+			</ul>
+			<p><i>descripcion:</i>Un Lenguaje de Control de Datos (DCL por sus siglas en inglés: Data Control Language) es un 
+			lenguaje proporcionado por el Sistema de Gestión de Base de Datos que incluye una serie de 
+			comandos SQL que permiten al administrador controlar el acceso a los datos contenidos en la Base 
+			de Datos. <br>En Oracle, la ejecución de un comando DCL implica un COMMIT de forma implícita. Sin 
+			embargo, en PostgreSQL, la ejecución de un comando DCL forma parte de una transacción, por lo 
+			que puede ser deshecha mediante el comando ROLLBACK.</p>
+		</li>
+		<li>
+			CONTROL DE TRANSACCIÓN (TCL)
+			<ul>
+				<li>COMMIT - GUARDA EL TRABAJO REALIZADO.</li>
+				<li>SAVEPOINT - IDENTIFICA UN PUNTO EN UNA TRANSACCIÓN A LA QUE MÁS 
+TARDE SEVPUEDE VOLVER.</li>
+				<li>ROLLBACK - RESTAURAR LA BASE DE DATOS A LA ORIGINAL, HASTA EL 
+ÚLTIMO COMMIT.</li>
+				<li>SET TRANSACTION - CAMBIA LAS OPCIONES DE TRANSACCIÓN COMO NIVEL 
+DE AISLAMIENTO Y QUÉ SEGMENTO DE CANCELACIÓN UTILIZA. </li>
+			</ul>
+			<p><i>descripcion:</i>Es un lenguaje de programación y un subconjunto de SQL , que se utiliza para controlar el 
+procesamiento de transacciones en una base de datos.
+Una transacción es una unidad lógica de trabajo que comprende una o más sentencias SQL, por lo 
+general un grupo de Data Manipulation Language (DML).</p>
+		</li>
+	</ul>
+	<br>
+	<a href="/">Index</a>
+</body>
+</html>

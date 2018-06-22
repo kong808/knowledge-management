@@ -1,0 +1,60 @@
+<html>
+<head>
+	<title></title>
+<meta charset="utf-8" />
+</head>
+<style>
+div.panel {
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+}
+
+div.panel.show {
+    display: block !important;
+}
+</style>
+</head>
+<body>
+	<ol>
+		<li>
+			<h3 class="accordion">Investigación</h3>
+			<div class="panel">
+				<p>Dolor sit amet</p>
+			</div>
+		</li>
+		<li>
+			<h3 class="accordion">Reposo</h3>
+			<div class="panel">
+				<p>Dolor sit amet</p>
+			</div>
+		</li>
+		<li>
+			<h3 class="accordion">Profundidad</h3>
+			<div class="panel">
+				<p>Dolor sit amet</p>
+			</div>
+		</li>
+		<li>
+			<h3 class="accordion">Aplicación</h3>
+			<div class="panel">
+				<p>Dolor sit amet</p>
+			</div>
+		</li>
+	</ol>
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].onclick = function(){
+    	for(j=0; j<acc.length; j++){
+    		acc[j].nextElementSibling.classList = "panel"
+    	}
+        this.classList.toggle("active");
+        this.nextElementSibling.classList.toggle("show");
+  }
+}
+</script>
+</body>
+</html>

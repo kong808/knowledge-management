@@ -1,0 +1,20 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="tudiv">Hola</div>
+	<script type="text/javascript" src="../js/jquery-1.12.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#tudiv').mouseenter(function(){
+    $('#tudiv').fadeTo('slow', 1);
+    });
+    $('#tudiv').mouseleave(function(){
+    $('#tudiv').fadeTo('fast', 0.5);
+    });
+
+});
+</script>
+</body>
+</html>
