@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Matemática Financiera</title>
+</head>
+<body>
+	<h1>Matemática Financiera</h1>	
+	<ul>
+		<li>ver consola - script</li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<br>
+	<a href="/">Index</a>
+	<script>
+		var Ci= 2000
+		var r = 0,06 //interes, en %
+		var t = 1 //en años
+
+		//Tipo de capitalización: ej: anual (1), semestral (2), trimestral(3), continua(8|Infinity)
+		var n = 8;
+
+		//Función de Capitalización de Intereses
+		function(Ci, r, t){
+			var Cf;
+			Cf = Ci*Math.pow(1+r, t);
+			return Cf;
+		} 
+
+		//Intereses Compuestos Continuos:
+		function(Ci, r, t){
+			Var Cf;
+			Cf = Ci*Math.exp(r*t);
+			return Cf;
+		}
+	</script>
+</body>
+</html>

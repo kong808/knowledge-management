@@ -1,0 +1,30 @@
+<html>
+<head>
+	<title>Financials</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<h1>Financials</h1>
+	<br>
+	<br>
+	<form>
+		<h3>Cotización Dolar-PesoARG</h3>
+		<label>Dolar U$D</label> <input type="number">
+		<br>
+		<label>Peso AR$</label> <input type="number">
+		<br>
+		<label id="today"></label>
+		<br>
+		<input type="submit">
+	</form>	
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<a href="/">Index</a>
+	<script>
+		document.getElementById("today").innerHTML = new Date().toDateString()
+	</script>
+</body>
+</html>

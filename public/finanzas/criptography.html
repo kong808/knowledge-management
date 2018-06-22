@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1"/> <!--320-->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="icon" href="https://www.citpad.com.ar/favicon.ico">
+	<title></title>
+	<style type="text/css"></style>
+</head>
+<body>
+	<h1>Criptography</h1>	
+	<ul>
+		<li>sing(Message, sk) = Signature</li>
+		<li>verify(Message, Signature, pk) = T/F</li>
+		<li>SHA256("Message/file") = HASH / or "Digest" (ej: 0110010101010010100101001... 256 bits = 2**256)</li>
+		<li></li>
+		<li>JSON aproach of one BitcoinTransaction JSON object: 
+			{
+				sender: "senderId",
+				reciever: "recieverId",
+				amount: number,
+				signature : "signature"
+			}
+		</li>
+	</ul>
+	<ul>
+		<h3>Tools</h3>
+		<li><a href="http://www.xorbin.com/tools/sha256-hash-calculator">sha256 hash calculator on-line!</a></li>
+		<li>you can, use CryptoAPI on Windows or /dev/urandom on Unix-like systems for a 16-byte SALT</li>
+		<li>Recommended: #username:realname:salt:hash</li>
+		<li>So: username + password --HTTPS-- if(hash == sha256(salt+password)x10) --> login </li>
+		<li>Last step is to loop over the hash, for make the things complex
+			However, don’t try to invent your own algorithm for repeated hashing.
+			<h3>Choose one of these three well-known ones: <a href="https://en.wikipedia.org/wiki/PBKDF2">PBKDF2</a>, bcrypt or scrypt.</h3></li>
+	</ul>
+	<ul>
+		<h3>Theory:</h3>
+		<li><a href="https://nakedsecurity.sophos.com/2013/11/20/serious-security-how-to-store-your-users-passwords-safely/">Save passwords SHA-256! FULL REFERENCE - 5 STEPS</a></li>
+		<li>Well-known and commonly-used hashing algorithms includes: </li>
+			<ol>
+				<i>One-Way hashing functions:</i>
+				<li>MD5 --> BROKEN!</li>
+				<li>SHA-1 --> BROKEN!</li>
+				<li>SHA-256 --> SECURE!</li>
+				<hr>
+				<i>For symetric Encryption Algorithms: (i.e. easly encrypt adn decrypt w/key)</i>
+				<li><a href="https://en.wikipedia.org/wiki/Data_Encryption_Standard">DES === DEA</a></li>
+				<i>stands for: Data Encryption Standard && Data Encryption Algorithm</i>
+				<li><a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard">AES</a></li>
+				<i>stands for: Advanced Encryption Stardard</i>
+				<hr>
+				<i>For Encoding Algorithms:</i>
+				<li><a href="https://en.wikipedia.org/wiki/Base64">Base64</a></li>
+			</ol>
+		<li><a href="https://en.wikipedia.org/wiki/SHA-2">SHA-2</a> <pre>SHA-2 includes significant changes from its predecessor, SHA-1. The SHA-2 family consists of six hash functions with digests (hash values) that are 224, 256, 384 or 512 bits: SHA-224, SHA-256, SHA-384, SHA-512, SHA-512/224, SHA-512/256.</pre></li>
+		<li>SHA-3 --> Something Different...</li>
+		<hr>
+		<li><a href="https://www.youtube.com/watch?v=DMtFhACPnTY">SHA-2 - Computerphile</a></li>
+	</ul>
+	<br>
+	<br>
+	<br>
+	<ul>
+		<h3>Bitcoin Protocol</h3>
+		<li>Broadcast Transactions (Anyone can add lines to the Ledger)</li>
+		<li>Only accepts signed transactions</li>
+		<li>No overspending (or debt)</li>
+		<li></li>
+	</ul>
+	<br>
+	<br>
+	<br>
+	<br>
+	<hr>
+	<a href="https://www.npmjs.com/package/bcrypt">Bcrypt - a node pkg for encryption</a>
+	<a href="/">Index</a>
+</body>
+</html>
